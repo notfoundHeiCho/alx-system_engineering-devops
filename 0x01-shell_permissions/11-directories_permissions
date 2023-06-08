@@ -1,2 +1,2 @@
-#!/bin/bash
-chmod -r +x . 
+#!/bin/dash
+chmod -R -X .
