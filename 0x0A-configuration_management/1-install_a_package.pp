@@ -1,4 +1,4 @@
-# install flask from pip3
+#Install flask version 2.1.0
 
 exec {'pip3 install flask':
 require => Exec['python-installed'],
