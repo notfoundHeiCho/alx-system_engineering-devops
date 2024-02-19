@@ -1,26 +1,28 @@
 #!/usr/bin/python3
-"""A script that gathers data from an API
-"""
+'''A script that gathers data from an API.
+'''
 import requests
 from sys import argv
+if __name__ == "__main__":
+    employee_ID = int(argv[1])
+    person_res = requests.get("\
+https://jsonplaceholder.typicode.com/users/{}".format(employee_ID)).json()
+    todo_list = requests.get("\
+https://jsonplaceholder.typicode.com/users/{}/todos\
+".format(employee_ID)).json()
 
+    tasks = 0
+    done = 0
+    for i in todo_list:
+        if i.get("completed"):
+            done += 1
+        tasks += 1
 
-def main():
-    """main function"""
-    BASE_URL = 'https://jsonplaceholder.typicode.com/'
-    id_user = argv[1]
-    user = requests.get(BASE_URL + 'users/{}'.format(id_user)).json()
-    todos = requests.get(BASE_URL + 'todos', params={'userId': id_user}).json()
-    length = 0
-    completed_tasks = []
-    for task in todo:
-        if task.get('completed') is True:
-            completed_tasks.append(task.get('title'))
-            length += 1
-    name = user.get('name')
-    print(f"Employee {name} is done with tasks({length}/{len(todo)}):")
-    [task for task in completed_tasks if print(f"\t {task}")]
+    print('Employee {} is done with tasks({}/{}):\
+    '.format(person_res.get("name"),
+             done,
+             tasks))
 
-
-if __name__ == '__main__':
-    main()
+    for i in todo_list:
+        if i.get("completed"):
+            print("\t {}".format(i.get("title")))
