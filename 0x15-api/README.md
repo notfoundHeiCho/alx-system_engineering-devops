@@ -13,7 +13,7 @@
     - File name: ```<user id>.csv```.
     - Format: ```"<user id>","<username>","<task completed status>","<task title>"```.
 
-# 2-Export to JSON**:
+# 2-Export to JSON:
     - Python script that exports to-do list information of a given employee ID to JSON format.
     -Usage: ```python3 2-export_to_JSON.py <employee ID>```
     - File name: ```<user id>.json```
